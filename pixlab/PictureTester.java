@@ -98,6 +98,23 @@ public class PictureTester
       s.explore();
     }
   
+  public static void testMirrorGull()
+  {
+      Picture sea = new Picture("seagull.jpg");
+      sea.explore();
+      sea.mirrorGull();
+      sea.explore();
+    }
+    
+  public static void testCopy()
+  {
+      Picture o = new Picture("caterpillar.jpg");
+      o.explore();
+      Picture s = new Picture("seagull.jpg");
+      s.copy(o, 100, 300, 100, 300);
+      s.explore();
+    }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -133,7 +150,7 @@ public class PictureTester
     //testMirrorHorizontalBotToTop();
     //testMirrorVerticalRightToLeft();
     //testMirrorTemple();
-    testMirrorArms();
+    //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();

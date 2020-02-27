@@ -241,7 +241,7 @@ public class Picture extends SimplePicture
 
 public void mirrorArms()
 {
-    int mirrorPoint = 197;
+    int mirrorPoint = 196;
     Pixel topPixel = null;
     Pixel bottomPixel = null;
     Pixel[][] pixels = this.getPixels2D();
@@ -251,8 +251,26 @@ public void mirrorArms()
         {
             int diff = mirrorPoint-row;
             topPixel = pixels[row][col];
-            bottomPixel = pixels[diff+row][col];
+            bottomPixel = pixels[diff+mirrorPoint][col];
             bottomPixel.setColor(topPixel.getColor());
+        }
+    }
+}
+
+public void mirrorGull()
+{
+    int mirrorPoint = 362;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 233; row<333; row++)
+    {
+        for (int col = 236; col<mirrorPoint; col++)
+        {
+            int diff = mirrorPoint-col;
+            leftPixel = pixels[row][col];
+            rightPixel = pixels[row][diff+mirrorPoint];
+            rightPixel.setColor(leftPixel.getColor());
         }
     }
 }
@@ -287,7 +305,36 @@ public void mirrorArms()
       }
     }   
   }
+  
+public void copy(Picture fromPic, int startR, int endR, int startC, int endC)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = startR, toRow = startR; 
+         fromRow < fromPixels.length &&
+         toRow < endR+1; 
+         fromRow++, toRow++)
+    {
+      for (int fromCol = startC, toCol = startC; 
+           fromCol < fromPixels[0].length &&
+           toCol < endC+1;  
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+  }
 
+  public void myCollage()
+  {
+      Picture b = new Picture("butterfly1.jpg");
+      Picture m = new Picture("moon-surface.jpg");
+      Picture s = new Picture("swan.jpg");
+    }
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
