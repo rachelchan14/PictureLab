@@ -138,6 +138,12 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+    Picture b = new Picture("butterfly1.jpg");
+    Picture s = new Picture("swan.jpg");
+    Picture m = new Picture("moon-surface.jpg");
+    b.explore();
+    s.explore();
+    m.explore();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();

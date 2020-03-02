@@ -334,6 +334,12 @@ public void copy(Picture fromPic, int startR, int endR, int startC, int endC)
       Picture b = new Picture("butterfly1.jpg");
       Picture m = new Picture("moon-surface.jpg");
       Picture s = new Picture("swan.jpg");
+      Picture c = new Picture("canvas.jpg");
+      
+      c.copy(s, 0, 0);
+      Picture bNo = new Picture(b);
+      bNo.zeroBlue();
+      
     }
   /** Method to create a collage of several pictures */
   public void createCollage()
