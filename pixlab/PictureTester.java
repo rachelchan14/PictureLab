@@ -115,6 +115,12 @@ public class PictureTester
       s.explore();
     }
   
+  public static void testMyCollage()
+  {
+      Picture c = new Picture("canvas.jpg");
+      c.myCollage();
+    }
+    
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -138,12 +144,6 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    Picture b = new Picture("butterfly1.jpg");
-    Picture s = new Picture("swan.jpg");
-    Picture m = new Picture("moon-surface.jpg");
-    b.explore();
-    s.explore();
-    m.explore();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -159,7 +159,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    //testMyCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();

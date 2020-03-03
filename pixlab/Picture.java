@@ -334,12 +334,15 @@ public void copy(Picture fromPic, int startR, int endR, int startC, int endC)
       Picture b = new Picture("butterfly1.jpg");
       Picture m = new Picture("moon-surface.jpg");
       Picture s = new Picture("swan.jpg");
-      Picture c = new Picture("canvas.jpg");
-      
-      c.copy(s, 0, 0);
+      Picture sNegate = new Picture(s);
+      sNegate.negate();
+      m.mirrorHorizontalBotToTop();
+      this.copy(m, 0, 0);
+      this.copy(sNegate, 480, 0);
       Picture bNo = new Picture(b);
       bNo.zeroBlue();
-      
+      this.copy(bNo, 0, 200);
+      this.explore();
     }
   /** Method to create a collage of several pictures */
   public void createCollage()
@@ -366,8 +369,11 @@ public void copy(Picture fromPic, int startR, int endR, int startC, int endC)
   {
     Pixel leftPixel = null;
     Pixel rightPixel = null;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
+    Color bottomColor = null;
     for (int row = 0; row < pixels.length; row++)
     {
       for (int col = 0; 
@@ -383,6 +389,21 @@ public void copy(Picture fromPic, int startR, int endR, int startC, int endC)
           leftPixel.setColor(Color.WHITE);
       }
     }
+    for (int col = 0; col<pixels[0].length; col++)
+    {
+        for (int row = 0; row<pixels.length; row++)
+        {
+            topPixel = pixels[row][col];
+            bottomPixel = pixels[row][col];
+            bottomColor = bottomPixel.getColor();
+            if (topPixel.colorDistance(bottomColor)>edgeDist)
+            {
+                topPixel.setColor(Color.BLACK);
+            }
+            else
+                topPixel.setColor(Color.WHITE);
+            }
+        }
   }
   
   
