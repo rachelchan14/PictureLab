@@ -106,6 +106,14 @@ public class PictureTester
       sea.explore();
     }
     
+  public static void testMirrorDiagonal()
+  {
+      Picture beach = new Picture("beach.jpg");
+      beach.explore();
+      beach.mirrorDiagonal();
+      beach.explore();
+    }
+  
   public static void testCopy()
   {
       Picture o = new Picture("caterpillar.jpg");
@@ -158,7 +166,7 @@ public class PictureTester
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
-    //testMirrorDiagonal();
+    testMirrorDiagonal();
     //testMyCollage();
     //testCopy();
     //testEdgeDetection();
