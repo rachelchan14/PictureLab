@@ -217,13 +217,13 @@ public class Picture extends SimplePicture
         Pixel[][] pixels = this.getPixels2D();
         Pixel current = null;
         Pixel next = null;
-        for (int row = 0; row<pixels.length/2; row++)
+        for (int row = 0; row<pixels.length; row++)
         {
-            for (int col = 0; col<pixels[0].length/2; col++)
+            for (int col = row + 1; col < pixels[0].length && col < pixels.length; col++)
             {
                 current = pixels[row][col];
                 next = pixels[col][row];
-                next.setColor(current.getColor());
+                current.setColor(next.getColor());
             }
         }
     }
