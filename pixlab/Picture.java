@@ -112,6 +112,25 @@ public class Picture extends SimplePicture
         }
   }
   
+  public void fixUnderwater()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray:pixels)
+      {
+          for (Pixel pixelObj:rowArray)
+          {
+              if (pixelObj.getRed()>20)
+              {
+                  pixelObj.setGreen(90);
+                }
+              else
+              {
+                  pixelObj.setBlue(255);
+                }
+            }
+        }
+    }
+  
   public void negate()
   {
       Pixel[][] pixels = this.getPixels2D();
